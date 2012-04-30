@@ -13,6 +13,10 @@ package org.flexlayouts.layouts {
 		
 		private var _rotation:Number = 0;
 		private var _rotateElements:Boolean = false;
+    
+    // Default to a whole circle, but the user can adjust this to
+    // specify a specific arc angle
+    private var _arcAngle:Number = 360;
 		
 		public function set rotation(val:Number):void {
 			_rotation = val;
@@ -29,6 +33,14 @@ package org.flexlayouts.layouts {
 				layoutTarget.invalidateDisplayList();
 			}
 		}
+    
+    public function set arcAngle(val:Number):void {
+      _arcAngle = val;
+      var layoutTarget:GroupBase = target;
+      if (layoutTarget) {
+        layoutTarget.invalidateDisplayList();
+      }
+    }
 		
 		override public function updateDisplayList(containerWidth:Number, containerHeight:Number):void {
 			var x:Number = 0;
@@ -82,7 +94,10 @@ package org.flexlayouts.layouts {
 				element.setLayoutBoundsSize(NaN, NaN);
 				
 				//compute angle, plus any extra rotation
-				theta = j / count * TWO_PI + _rotation * PI_OVER_180;
+        // If the _arcAngle is a multiple of360, the user really wants a complete circle;
+        // otherwise, use the exact arc specified
+        var adjustedCount:Number = (_arcAngle%360 == 0) ? count: count - 1;
+				theta = (j / adjustedCount) * (_arcAngle * PI_OVER_180) + (_rotation * PI_OVER_180);
 				
 				//rotate the element if necessary
 				if (_rotateElements) {

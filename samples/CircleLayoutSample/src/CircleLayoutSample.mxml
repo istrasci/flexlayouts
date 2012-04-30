@@ -46,7 +46,8 @@
 				</fx:Component>
 			</s:itemRenderer>
 			<s:layout>
-				<layouts:CircleLayout rotation="{rotSlider.value}" rotateElements="{rotateElements.selected}" />
+				<layouts:CircleLayout rotation="{rotSlider.value}" rotateElements="{rotateElements.selected}" 
+          arcAngle="{arcAngleSlider.value}" />
 			</s:layout>
 		</s:DataGroup>
 	</s:Group>
@@ -99,9 +100,11 @@
 					
 					<s:VGroup gap="8" paddingTop="5">
 						<s:HGroup gap="16" width="100%" verticalAlign="middle">
-							<components:LabeledSlider id="rotSlider" label="rotation" sliderWidth="145"
+							<components:LabeledSlider id="rotSlider" label="rotation" sliderWidth="100"
 													  minimum="-360" maximum="360" step="5" value="-60" />
 							<components:LabeledCheck id="rotateElements" label="rotateElements" selected="false" />
+              <components:LabeledSlider id="arcAngleSlider" label="arcAngle" sliderWidth="100"
+													  minimum="-360" maximum="360" step="5" value="360" />
 						</s:HGroup>
 					</s:VGroup>
 				</s:HGroup>
