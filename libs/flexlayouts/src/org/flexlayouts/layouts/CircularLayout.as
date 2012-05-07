@@ -7,7 +7,7 @@ package org.flexlayouts.layouts {
 	import spark.components.supportClasses.GroupBase;
 	import spark.layouts.supportClasses.LayoutBase;
 	
-	public class CircleLayout extends LayoutBase {
+	public class CircularLayout extends LayoutBase {
 		private static const TWO_PI:Number = Math.PI * 2.0;
 		private static const PI_OVER_180:Number = Math.PI / 180.0;
 		
