@@ -96,7 +96,7 @@ package org.flexlayouts.layouts {
 				//compute angle, plus any extra rotation
         // If the _arcAngle is a multiple of360, the user really wants a complete circle;
         // otherwise, use the exact arc specified
-        var adjustedCount:Number = (_arcAngle%360 == 0) ? count: count - 1;
+        var adjustedCount:Number = ((_arcAngle%360 == 0) || (count==1)) ? count: count - 1;
 				theta = (j / adjustedCount) * (_arcAngle * PI_OVER_180) + (_rotation * PI_OVER_180);
 				
 				//rotate the element if necessary

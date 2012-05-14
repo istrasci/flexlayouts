@@ -8,7 +8,7 @@
 	xmlns:utils="org.flexlayouts.utils.*"
 	backgroundColor="#eeeeee"
 	width="620" height="420"
-	viewSourceURL="srcview/index.html">
+>
 	
 	<fx:Style>
 		@namespace s "library://ns.adobe.com/flex/spark";
@@ -46,7 +46,7 @@
 				</fx:Component>
 			</s:itemRenderer>
 			<s:layout>
-				<layouts:CircleLayout rotation="{rotSlider.value}" rotateElements="{rotateElements.selected}" 
+				<layouts:CircularLayout rotation="{rotSlider.value}" rotateElements="{rotateElements.selected}" 
           arcAngle="{arcAngleSlider.value}" />
 			</s:layout>
 		</s:DataGroup>
